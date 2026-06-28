@@ -45,10 +45,4 @@ Vector distance equations constantly calculate the clearance threshold between t
 
 ---
 
-## 💻 Local Quickstart
 
-To run this project locally without compilation tooling, clone the repository and initialize a lightweight local server stack:
-
-1. Clone the repository to your environment:
-   ```bash
-   git clone [https://github.com/GNikhila-92/drone-simulator.git](https://github.com/GNikhila-92/drone-simulator.git)
