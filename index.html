@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Pilot v1.0</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="scene-container"></div>
+
+    <div id="webcam-container">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="hand-overlay"></canvas>
+        <div id="hand-status" class="status-lost">
+            <span class="status-dot"></span>
+            <span class="status-text">NO SIGNAL</span>
+        </div>
+    </div>
+
+    <div id="instructions-overlay">
+        <div class="glitch-scanlines"></div>
+        
+        <div class="instructions-content">
+            <div class="logo-container">
+                <div class="version-tag">STABLE BUILD // V1.0.4</div>
+                <h1>ARCADE_PILOT</h1>
+                <p class="subtitle">AI GESTURE DRONE EVASION GAME</p>
+            </div>
+
+            <div class="calibration-box">
+                <div class="crosshair">+</div>
+                <div class="calibration-text">AVOID THE METEORS...</div>
+            </div>
+
+            <div class="instructions-grid">
+                <div class="holo-card">
+                    <span class="card-num">01/</span>
+                    <div class="holo-text">
+                        <h4>STEER LEFT & RIGHT</h4>
+                        <p>Move your entire hand left or right across the screen to dodge obstacles.</p>
+                    </div>
+                </div>
+                <div class="holo-card">
+                    <span class="card-num">02/</span>
+                    <div class="holo-text">
+                        <h4>FLY UP & DOWN</h4>
+                        <p>Raise your hand higher to lift the drone up. Lower your hand to bring it down.</p>
+                    </div>
+                </div>
+                <div class="holo-card">
+                    <span class="card-num">03/</span>
+                    <div class="holo-text">
+                        <h4>FORWARD & BACK</h4>
+                        <p>Push your hand closer to the camera to fly deep into space. Pull back to retreat.</p>
+                    </div>
+                </div>
+                <div class="holo-card">
+                    <span class="card-num">04/</span>
+                    <div class="holo-text">
+                        <h4>PINCH BRAKE</h4>
+                        <p>Touch your thumb and index finger together to instantly freeze inside space.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="start-button">
+                START ENGINES & DODGE OBSTACLES
+            </button>
+            <div class="footer-credit">Built with Three.js & MediaPipe</div>
+        </div>
+    </div>
+
+    <div id="flight-hud">
+        <div class="hud-item">
+            <span class="hud-label">ALTITUDE</span>
+            <span id="hud-altitude" class="hud-value">0.0m</span>
+        </div>
+        <div class="hud-item">
+            <span class="hud-label">SCORE</span>
+            <span id="hud-pos-x" class="hud-value" style="color: #00ffcc;">0</span>
+        </div>
+        <div class="hud-item">
+            <span class="hud-label">SHIELD</span>
+            <span id="hud-pos-z" class="hud-value" style="color: #ff0055;">100%</span>
+        </div>
+        <div class="hud-item">
+            <span class="hud-label">SYSTEM</span>
+            <span id="hud-flight-status" class="hud-value status-idle">STANDBY</span>
+        </div>
+    </div>
+
+    <div id="freeze-indicator" class="hidden">
+        <span>⏸️ LOCKED</span>
+    </div>
+
+    <div id="error-message" class="hidden"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
